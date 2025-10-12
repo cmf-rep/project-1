@@ -1,0 +1,11 @@
+.centered-container {
+  max-width: 350px;         // Fixed max width
+  width: 100%;              // Allow shrinking on small screens
+  margin: auto;             // Center horizontally
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // Center vertically
+  padding: 1rem;
+  box-sizing: border-box;
+}

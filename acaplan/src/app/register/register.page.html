@@ -1,0 +1,67 @@
+<ion-content class="centered-container ">
+  <ion-card>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class=" ion-padding">
+
+      <ion-list>
+           <ion-input
+            class="ion-margin-top"
+            type="text"
+            label="Full Name"
+            labelPlacement="floating"
+            formControlName="username"
+            placeholder="example:Lexy Boromeo"
+            fill="outline">
+            <ion-icon slot="start" name="mail"></ion-icon>
+
+          </ion-input>
+          <ion-input
+            class="ion-margin-top"
+            type="email"
+            label="Email"
+            labelPlacement="floating"
+            formControlName="email"
+            placeholder="you@example.com"
+            fill="outline">
+            <ion-icon slot="start" name="mail"></ion-icon>
+
+          </ion-input>
+
+         
+
+          <ion-input
+            class="ion-margin-top"
+            [type]="showPassword ? 'text' : 'password'"
+            label="Password"
+            labelPlacement="floating"
+            formControlName="password"
+            placeholder="Enter your password"
+            fill="outline"
+            [clearOnEdit]="false">
+            <ion-icon slot="start" name="lock-closed"></ion-icon>
+             <ion-button
+            *ngIf="showEyeIcon"
+            fill="clear"
+            slot="end"
+            size="small"
+            type="button"
+            (click)="togglePassword()"
+          >
+            <ion-icon slot="icon-only" [name]="showPassword ? 'eye' : 'eye-off'"></ion-icon>
+          </ion-button>
+          </ion-input>
+      </ion-list>
+      
+      <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">
+        Register
+      </ion-button>
+
+      
+    </form>
+
+    <div class="ion-text-center ion-margin-top">
+        Already have an account?
+        <a [routerLink]="['/login']">Login</a>
+    </div>
+  </ion-card>
+  
+</ion-content>
