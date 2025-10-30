@@ -1,0 +1,7 @@
+{
+  "name": "boob",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
