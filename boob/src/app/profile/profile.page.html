@@ -1,0 +1,80 @@
+<ion-header translucent="true">
+  <ion-toolbar color="success">
+    <ion-title>iCICS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="main-container">
+
+    <!-- ✅ Class Schedule Section -->
+    <div class="section-container">
+      <h2 class="section-title">📘 Class Schedule</h2>
+
+      <ion-grid class="schedule-grid">
+        <ion-row class="schedule-header">
+          <ion-col><strong>Subject</strong></ion-col>
+          <ion-col><strong>Course</strong></ion-col>
+          <ion-col><strong>Section</strong></ion-col>
+          <ion-col><strong>Time</strong></ion-col>
+          <ion-col><strong>Room</strong></ion-col>
+        </ion-row>
+
+        <ion-row *ngFor="let s of schedules" class="schedule-row">
+          <ion-col>{{ s.subject }}</ion-col>
+          <ion-col>{{ s.course }}</ion-col>
+          <ion-col>{{ s.section }}</ion-col>
+          <ion-col>{{ s.time }}</ion-col>
+          <ion-col>{{ s.room }}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <div class="action-buttons">
+        <ion-button expand="block" color="tertiary" routerLink="/swap-request">
+          <ion-icon slot="start" name="swap-horizontal-outline"></ion-icon>
+          Swap Schedule
+        </ion-button>
+
+        <ion-button expand="block" color="danger" routerLink="/cancel-class">
+          <ion-icon slot="start" name="close-circle-outline"></ion-icon>
+          Cancel Class
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- ✅ Notifications Section -->
+    <div class="section-container">
+      <h2 class="section-title">🔔 Notifications</h2>
+      <ion-list>
+        <ion-item *ngFor="let notif of notifications">
+          <ion-icon name="notifications-outline" slot="start" color="warning"></ion-icon>
+          <ion-label>
+            <h3>{{ notif.title }}</h3>
+            <p>{{ notif.message }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+ <!-- ✅ Modern Bottom Navigation -->
+<ion-footer>
+  <div class="bottom-nav">
+    <div class="nav-item active" routerLink="/profile" routerDirection="root">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Home</span>
+    </div>
+         <div class="nav-item" routerLink="/events">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <span>Events</span>
+    </div>
+    <div class="nav-item" routerLink="/messages" routerDirection="root">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <span>Messages</span>
+    </div>
+    <div class="nav-item" routerLink="/settings" routerDirection="root">
+      <ion-icon name="settings-outline"></ion-icon>
+      <span>Settings</span>
+    </div>
+  </div>
+</ion-footer>

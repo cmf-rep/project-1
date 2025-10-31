@@ -33,12 +33,6 @@ export class Auth {
   authState$ = this.currentUserSubject.asObservable();
 
   constructor() {
-    try {
-      this.app = initializeApp(firebaseConfig);
-    } catch (error) {
-      console.error('Firebase initialization failed:', error);
-    }
-
     this.app = initializeApp(firebaseConfig);
     this.auth = getAuth(this.app);
     this.db = getFirestore(this.app);
@@ -55,17 +49,17 @@ export class Auth {
   }
 
 
+  
+
+
   async signInWithEmployeeID(employeeID: string, password: string) {
-    try {
       // Step 1: Look up the email associated with this employee ID
       const usersRef = collection(this.db, 'users'); // Reference to 'users' collection
       const q = query(usersRef, where('user_Id', '==', employeeID));//query
-      const querySnapshot = await getDocs(q);
 
+      
 
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data());
-      }); 
+      const querySnapshot = await getDocs(q); 
 
 
       if (querySnapshot.empty) {
@@ -80,10 +74,7 @@ export class Auth {
       console.log('Signed in as:', userCredential.user.email);
       return userCredential.user;
 
-    } catch (error: any) {
-      console.error('error sa may query:', error.message);
-      throw error;
-    }
+    
   }
 
   async signOut(): Promise<void> {
@@ -100,4 +91,27 @@ export class Auth {
   get currentUser() {
     return this.currentUserSubject.value;
   }
+
+  async  fetchAndDisplayCollectionData(db: any, collectionName: string) {
+    try {
+      const colRef = collection(db, collectionName); // Reference to the collection
+      const snapshot = await getDocs(colRef); // Fetch documents
+
+      if (snapshot.empty) {
+        console.log(`No documents found in collection "${collectionName}".`);
+        return;
+      }
+
+      snapshot.forEach((doc) => {
+        console.log(`Document ID: ${doc.id}`);
+        console.log('Data:', doc.data());
+        console.log('-----------------------');
+      });
+
+    } catch (error: any) {
+      console.error('Error fetching collection data:', error.message);
+    }
+    
+  }
+  
 }

@@ -1,0 +1,61 @@
+ion-content {
+  --background: var(--ion-color-light);
+  padding-bottom: 70px; // prevent content overlap with footer
+}
+
+ion-item-divider {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ion-color-medium);
+  margin-top: 8px;
+}
+
+ion-avatar img {
+  border-radius: 50%;
+}
+
+ion-button {
+  --border-radius: 12px;
+}
+
+/* ✅ Bottom Navigation Bar */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 8px 0;
+  border-top: 1px solid #222;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.nav-item ion-icon {
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #f4d03f; /* gold highlight */
+}
+
+.nav-item:hover {
+  color: #f4d03f;
+}
+
+.nav-item span {
+  font-size: 11px;
+}

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Users List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-button expand="full" (click)="fetchUsers()">
+    Refresh Users
+  </ion-button>
+
+  <ion-list *ngIf="usersData.length > 0; else noUsers">
+    <ion-item *ngFor="let user of usersData">
+      <ion-label>
+        <h2>{{ user.name || 'No Name' }}</h2>
+        <p>Email: {{ user.email || 'No Email' }}</p>
+        <p>ID: {{ user.id }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noUsers>
+    <p>No users found.</p>
+  </ng-template>
+
+</ion-content>

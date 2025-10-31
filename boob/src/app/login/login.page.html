@@ -1,40 +1,35 @@
 <ion-content [fullscreen]="true" class="login-bg">
   <div class="center-wrapper">
-  <div class="container">
-    <img src="assets/images/csulogo-removebg-preview.png" alt="CSU Logo" class="logo" />
-    <h1>WELCOME BACK</h1>
-    <h2>CSU Faculty Portal Login</h2>
-
-    <form (ngSubmit)="handleLogin()">
-      <div class="input-group">
-        <ion-icon name="person-outline"></ion-icon>
-        <ion-input
-          type="text"
-          placeholder="Employee ID"
-          [(ngModel)]="userID"
-          name="userID"
-          required
-        ></ion-input>
-      </div>
-
-      <div class="input-group">
-        <ion-icon name="lock-closed-outline"></ion-icon>
-        <ion-input
-          type="password"
-          placeholder="Password"
-          [(ngModel)]="password"
-          name="password"
-          required
-        ></ion-input>
-      </div>
-
-      <ion-button expand="block" type="submit" class="sign-in-btn">
+    <div class="container">
+      <img src="assets/images/csulogo-removebg-preview.png" alt="CSU Logo" class="logo" />
+      <h1>WELCOME BACK</h1>
+      <h2>CSU Faculty Portal Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="Employee ID"
+                formControlName="userID"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="lock-closed-outline"></ion-icon>
+              <ion-input
+                type="password"
+                placeholder="Password"
+                formControlName="password"
+                required></ion-input>
+            </div>
+        
+        <ion-button expand="block" type="submit" class="sign-in-btn" [disabled]="loginForm.invalid">
         <ion-icon name="log-in-outline" slot="start"></ion-icon>
-        SIGN IN
-      </ion-button>
-    </form>
+          Login
+        </ion-button>
 
-
+        
+      </form>
+    </div>
   </div>
-  </div>
+  
 </ion-content>

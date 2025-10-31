@@ -1,0 +1,107 @@
+.main-container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Section Containers */
+.section-container {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-weight: bold;
+  color: #063a09;
+  margin-bottom: 10px;
+}
+
+/* ✅ Schedule Grid Styling */
+.schedule-grid {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.schedule-header {
+  background-color: #063a09;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.schedule-row {
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 6px 0;
+
+  &:nth-child(even) {
+    background-color: #f7f7f7;
+  }
+}
+
+/* ✅ Buttons */
+.action-buttons {
+  margin-top: 15px;
+
+  ion-button {
+    margin-top: 10px;
+    font-weight: 600;
+    border-radius: 10px;
+  }
+}
+
+/* ✅ Footer (Fixed) */
+ion-footer {
+  position: fixed;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 200;
+}
+
+/* ✅ Bottom Navigation Bar */
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  padding: 8px 0;
+  border-top: 1px solid #222;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
+
+.nav-item ion-icon {
+  font-size: 22px;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #f4d03f; /* gold highlight */
+}
+
+.nav-item:hover {
+  color: #f4d03f;
+}
+
+.nav-item span {
+  font-size: 11px;
+}
