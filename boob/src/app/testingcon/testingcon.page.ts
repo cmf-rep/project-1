@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton,IonList, IonItem,IonLabel } from '@ionic/angular/standalone';
+import { IonicModule } from '@ionic/angular';
 import { initializeApp, FirebaseApp } from 'firebase/app';
-import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore/lite';
+import { getFirestore, getDocs, collection, query, where,setDoc, doc } from 'firebase/firestore/lite';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Auth } from '../auth';
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyC-z3hajzEJSF3w9mnE3792BYwMtMzA33E",
@@ -20,16 +24,38 @@ const firebaseConfig = {
   templateUrl: './testingcon.page.html',
   styleUrls: ['./testingcon.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButton, IonList, IonItem, IonLabel]
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class TestingconPage implements OnInit {
+  dataForm: FormGroup;
+  CSForm: FormGroup;
   private app: FirebaseApp;
   private db;
   public usersData: any[] = []; // To store fetched data
 
-  constructor() {
+  constructor( private formBuilder: FormBuilder, private auth: Auth) {
     this.app = initializeApp(firebaseConfig);
     this.db = getFirestore(this.app);
+    //para sa pag add ng user to
+    this.dataForm = this.formBuilder.group({
+      userID: ['', Validators.required],
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      email: ['', Validators.required],
+      role: ['', Validators.required],
+      course: ['', Validators.required],
+      status: ['', Validators.required],
+    });
+
+    this.CSForm = this.formBuilder.group({
+      subject: ['', Validators.required],
+      course: ['', Validators.required],
+      year_and_section: ['', Validators.required],
+      start_time: ['', Validators.required],
+      end_time: ['', Validators.required],
+      room: ['', Validators.required],
+      assigned_teacher: ['', Validators.required],
+    });
   }
 
   ngOnInit() {
@@ -57,8 +83,17 @@ export class TestingconPage implements OnInit {
         this.usersData.push({ id: doc.id, ...doc.data() });
       });
 
+      console.log('ito boosss',this.auth.currentUser);
+
     } catch (error: any) {
       console.error('Error fetching users:', error.message);
     }
   }
+  async handledata(){
+    this.auth.insertUser(this.dataForm.value);
+  }
+  async handleCSdata(){
+    this.auth.insertCS(this.CSForm.value);
+  }
 }
+

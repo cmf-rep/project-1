@@ -1,29 +1,37 @@
-ion-content {
-  --background: var(--ion-color-light);
-  padding-bottom: 70px;
-}
+.faculty-report-page {
+  --background: #f6f8fa;
 
-ion-card {
-  margin: 12px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-ion-card-title {
+  ion-toolbar {
+  --background: #1565c0;
+  --color: #fff;
+  margin-bottom: 50%;
   font-weight: 600;
-  color: var(--ion-color-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-ion-item {
-  --background: #fff;
-  transition: 0.2s ease;
-}
+  ion-list {
+    margin: 12px;
+  }
 
-ion-item:hover {
-  background: #f7f7f7;
-}
+  ion-item {
+    --background: #fff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+  }
 
-/* ✅ Bottom Navigation Bar */
+  ion-item:hover {
+    background: #eef4ff;
+    transform: scale(1.01);
+  }
+
+  ion-note {
+    font-size: 0.8rem;
+  }
+
+}
+ /* ✅ Bottom Navigation Bar */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
@@ -64,3 +72,4 @@ ion-item:hover {
 .nav-item span {
   font-size: 11px;
 }
+

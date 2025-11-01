@@ -30,4 +30,12 @@ export const routes: Routes = [
     path: 'settings',
     loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
   },
+  {
+    path: 'notif',
+    loadComponent: () => import('./notif/notif.page').then( m => m.NotifPage)
+  },
+  {
+    path: 'eclass',
+    loadComponent: () => import('./eclass/eclass.page').then( m => m.EclassPage)
+  },
 ];

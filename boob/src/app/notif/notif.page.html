@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Report CL Problem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="faculty-report-page">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Faculty Reports</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- 🔹 New Report Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="openReportForm()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- 🔹 List of Reports -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>My Submitted Reports</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="none">
+      <ion-icon name="desktop-outline" slot="start" color="danger"></ion-icon>
+      <ion-label>
+        <h2>Computer #12 not booting - Lab 101</h2>
+        <p>Submitted to Head Technicals | Priority: <strong>High</strong></p>
+        <ion-note color="warning">Pending</ion-note>
+      </ion-label>
+      <ion-note slot="end">1h ago</ion-note>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-icon name="videocam-outline" slot="start" color="medium"></ion-icon>
+      <ion-label>
+        <h2>Projector not working - Lab 204</h2>
+        <p>Technician assigned: <strong>Mr. Dela Cruz</strong></p>
+        <ion-note color="success">Resolved</ion-note>
+      </ion-label>
+      <ion-note slot="end">1d ago</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<!-- ✅ Modern Bottom Navigation -->
+<ion-footer>
+  <div class="bottom-nav">
+    <div class="nav-item" routerLink="/profile" routerDirection="root">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Home</span>
+    </div>
+         <div class="nav-item" routerLink="../e-connect">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <span>Events</span>
+    </div>
+    <div class="nav-item" routerLink="../eclass" routerDirection="root">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <span>Messages</span>
+    </div>
+    <div class="nav-item active" routerLink="../settings" routerDirection="root">
+      <ion-icon name="settings-outline"></ion-icon>
+      <span>Settings</span>
+    </div>
+  </div>
+</ion-footer>

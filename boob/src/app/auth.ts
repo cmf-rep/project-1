@@ -8,7 +8,7 @@ import {
   signOut
 } from 'firebase/auth';
 
-import { getFirestore,getDocs, collection, query, where } from 'firebase/firestore/lite';
+import { getFirestore,getDocs, collection, query, where, setDoc, doc } from 'firebase/firestore/lite';
 import { BehaviorSubject } from 'rxjs';
 
 const firebaseConfig = {
@@ -47,7 +47,9 @@ export class Auth {
       }
     });
   }
-
+  get currentUser() {
+    return this.currentUserSubject.value;
+  }
 
   
 
@@ -71,7 +73,6 @@ export class Auth {
 
       // Step 2: Sign in using the found email
       const userCredential = await signInWithEmailAndPassword(this.auth, email, password);
-      console.log('Signed in as:', userCredential.user.email);
       return userCredential.user;
 
     
@@ -86,10 +87,6 @@ export class Auth {
       console.error("Error signing out:", error.message);
       throw error;
     }
-  }
-
-  get currentUser() {
-    return this.currentUserSubject.value;
   }
 
   async  fetchAndDisplayCollectionData(db: any, collectionName: string) {
@@ -113,5 +110,30 @@ export class Auth {
     }
     
   }
+
+
+    /**
+    * Inserts a new user into the Firestore `users` collection with auto-generated ID
+    * @param userData Object containing fields & values (e.g., { first_name, last_name, email, role })
+    */
+    async  insertUser(userData: Record<string, any>) {
+      try {
+        const userRef = doc(collection(this.db, 'users')); // Auto-generated ID
+        await setDoc(userRef, userData);
+        console.log(`User added successfully with ID: ${userRef.id}`);
+      } catch (error) {
+        console.error('Error adding user:', error);
+      }
+    }
+
+    async  insertCS(userData: Record<string, any>) {
+      try {
+        const userRef = doc(collection(this.db, 'class_schedule')); // Auto-generated ID
+        await setDoc(userRef, userData);
+        console.log(`schedule added successfully with ID: ${userRef.id}`);
+      } catch (error) {
+        console.error('Error adding schedule:', error);
+      }
+    }
   
 }

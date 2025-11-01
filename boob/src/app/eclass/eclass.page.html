@@ -1,0 +1,158 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>eClass Messenger</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="messages-page">
+
+  <!-- 🔹 Collapsed Header -->
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Messages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- 🔹 Filter Tabs -->
+  <ion-segment value="all" class="message-filters">
+    <ion-segment-button value="all">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="unread">
+      <ion-label>Unread</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="groups">
+      <ion-label>Groups</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- 🔹 Search -->
+  <ion-searchbar placeholder="Search by student, course, or subject"></ion-searchbar>
+
+  <!-- 🔹 Personal Chats -->
+  <ion-list>
+    <ion-item button routerLink="/chat/juan">
+      <ion-avatar slot="start">
+        <img src="assets/student1.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Juan Dela Cruz</h2>
+        <p>Sir, can you check my lab activity?</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">5m</ion-note>
+    </ion-item>
+
+    <ion-item button routerLink="/chat/profreyes">
+      <ion-avatar slot="start">
+        <img src="assets/professor1.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Prof. Reyes</h2>
+        <p>Reminder: Midterm report due next week.</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">1h</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- 🔹 Group Chats by Course -->
+
+  <ion-list>
+    <ion-item button routerLink="/chat/cs1a">
+      <ion-avatar slot="start">
+        <img src="assets/course-cs.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>BS Computer Science 1A</h2>
+        <p>Subject: Web Development • New activity posted 📚</p>
+      </ion-label>
+      <ion-note slot="end" color="success">Active</ion-note>
+    </ion-item>
+
+    <ion-item button routerLink="/chat/it1b">
+      <ion-avatar slot="start">
+        <img src="assets/course-it.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>BS Information Technology 1B</h2>
+        <p>Subject: Programming 1 • Compilation ready ✅</p>
+      </ion-label>
+      <ion-note slot="end" color="warning">2 new</ion-note>
+    </ion-item>
+
+    <ion-item button routerLink="/chat/bmma3a">
+      <ion-avatar slot="start">
+        <img src="assets/course-bmma.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>BMMA 3A</h2>
+        <p>Subject: Digital Arts • Poster design critique 🎨</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">1h</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- 🔹 Subject-Based Groups -->
+  <ion-list>
+    <ion-item button routerLink="/chat/webdev">
+      <ion-avatar slot="start">
+        <img src="assets/subject-webdev.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Web Development</h2>
+        <p>Discussion: Responsive design task submission</p>
+      </ion-label>
+      <ion-note slot="end" color="success">Active</ion-note>
+    </ion-item>
+
+    <ion-item button routerLink="/chat/discretemath">
+      <ion-avatar slot="start">
+        <img src="assets/subject-math.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Discrete Mathematics</h2>
+        <p>New: Quiz 2 Review Materials uploaded</p>
+      </ion-label>
+      <ion-note slot="end" color="warning">3 new</ion-note>
+    </ion-item>
+
+    <ion-item button routerLink="/chat/networking">
+      <ion-avatar slot="start">
+        <img src="assets/subject-network.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Computer Networking</h2>
+        <p>Lab setup for subnetting exercise 🧠</p>
+      </ion-label>
+      <ion-note slot="end" color="medium">30m</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- 🔹 Floating New Chat Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<!-- ✅ Bottom Navigation -->
+<ion-footer>
+  <div class="bottom-nav">
+    <div class="nav-item" routerLink="../profile">
+      <ion-icon name="Home-outline"></ion-icon>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" routerLink="../e-connect">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <span>Events</span>
+    </div>
+        <div class="nav-item active" routerLink="/eclass" routerDirection="root">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <span>Messages</span>
+    </div>
+    <div class="nav-item" routerLink="../settings">
+      <ion-icon name="settings-outline"></ion-icon>
+      <span>Settings</span>
+    </div>
+  </div>
+</ion-footer>

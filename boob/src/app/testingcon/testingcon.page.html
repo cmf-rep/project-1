@@ -23,5 +23,141 @@
   <ng-template #noUsers>
     <p>No users found.</p>
   </ng-template>
+        <form [formGroup]="dataForm" (ngSubmit)="handledata()">
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="first_name"
+                formControlName="first_name"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="last_name"
+                formControlName="last_name"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="email"
+                formControlName="email"
+                required></ion-input>
+            </div>
+             <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="role"
+                formControlName="role"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="course"
+                formControlName="course"
+                required></ion-input>
+            </div>
+             <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="status"
+                formControlName="status"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="user ID"
+                formControlName="userID"
+                required></ion-input>
+            </div>
 
+
+            
+        
+        <ion-button expand="block" type="submit" class="sign-in-btn" [disabled]="dataForm.invalid">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          submit
+        </ion-button>
+
+        
+      </form>
+
+      <form [formGroup]="CSForm" (ngSubmit)="handleCSdata()">
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="subject"
+                formControlName="subject"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="course"
+                formControlName="course"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="year-section"
+                formControlName="year_and_section"
+                required></ion-input>
+            </div>
+             <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="start_time"
+                formControlName="start_time"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="end_time"
+                formControlName="end_time"
+                required></ion-input>
+            </div>
+             <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="room"
+                formControlName="room"
+                required></ion-input>
+            </div>
+            <div class="input-group">
+              <ion-icon name="person-outline"></ion-icon>
+              <ion-input
+                type="text"
+                placeholder="faculty id"
+                formControlName="assigned_teacher"
+                required></ion-input>
+            </div>
+
+
+            
+        
+        <ion-button expand="block" type="submit" class="sign-in-btn" [disabled]="CSForm.invalid">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+          submit
+        </ion-button>
+
+        
+      </form>
 </ion-content>
